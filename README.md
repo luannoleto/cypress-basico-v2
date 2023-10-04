@@ -6,7 +6,7 @@ Sample project for the basic course of the Talking About Testing online school.
 
 It is required to have Node.js and npm installed to run this project.
 
-> I used versions `v14.18.1` and `8.1.2` of Node.js and npm, respectively. I suggest you use the same or later versions.
+> I used versions `v18.18.0` and `9.8.1` of Node.js and npm, respectively. I suggest you use the same or later versions.
 
 ## Installation
 
@@ -18,15 +18,15 @@ You can run the tests simulating a desktop or mobile viewpor
 
 ### Desktop
 
-Run `npm test` (or `npm t` for the short version) to run the test in headless mode on a desktop viewport.
+Run `npm run cy:headless` to run the test in headless mode on a desktop viewport.
 
-Or, run `npm run cy:open` to open Cypress in interactive mode on a desktop viewport.
+Or, run `npm run cy:ui` to open Cypress in interactive mode on a desktop viewport.
 
 ### Mobile
 
-Run `npm run test:mobile` to run the test in headless mode on a mobile viewport.
+Run `npm run cy:headless:mobile` to run the test in headless mode on a mobile viewport.
 
-Or, run `npm run cy:open:mobile` to open Cypress in interactive mode on a mobile viewport.
+Or, run `npm run cy:ui:mobile` to open Cypress in interactive mode on a mobile viewport.
 
 ## Support this project
 
@@ -46,7 +46,7 @@ This project was created with 💚 by [Luan Cesar](https://github.com/luannoleto
 
 👋 Seja bem-vindo(a)!
 
-Zup Innovation. ❤️
+O melhor lugar é onde você está. ❤️
 
 ## O que você vai aprender
 

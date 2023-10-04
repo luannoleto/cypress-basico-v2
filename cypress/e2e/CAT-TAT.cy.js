@@ -1,3 +1,5 @@
+/// <reference types="Cypress" />
+
 describe('Central de atendimento ao cliente TAT', function () {
 
     beforeEach(() => {
@@ -10,14 +12,14 @@ describe('Central de atendimento ao cliente TAT', function () {
     })
 
     //[Caso de Teste 002]
-    it('preenche os campos obrigatórios e envia o formulário', () => {
+    it('preenche os campos obrigatórios e envia o formulário com delay', () => {
 
-        const longTest = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry'
+        const longText = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry'
 
         cy.get('#firstName').type('Luan')
         cy.get('#lastName').type('Cesar')
         cy.get('#email').type('test@test.com')
-        cy.get('#open-text-area').type(longTest, { delay: 0 })
+        cy.get('#open-text-area').type(longText, { delay: 0 })
 
         cy.contains('button', 'Enviar').click()
 
@@ -166,20 +168,20 @@ describe('Central de atendimento ao cliente TAT', function () {
     })
 
     //[Caso de Teste 016]
-    it('seleciona um arquivo simulando um grag-and-drop (arrastando o aquivo)', () => {
+    it('seleciona um arquivo simulando um drag-and-drop (arrastando o aquivo)', () => {
         cy.get('#file-upload')
             .should('not.have.value')
-            .selectFile('./cypress/fixtures/example.json', { action: 'drag-drop' })
+            .selectFile('./cypress/fixtures/drag-and-drop.json', { action: 'drag-drop' })
             .should(function ($arquivo) {
-                expect($arquivo[0].files[0].name).to.eql('example.json')
+                expect($arquivo[0].files[0].name).to.eql('drag-and-drop.json')
             })
     })
 
     //[Caso de Teste 017]
     it('seleciona um arquivo utilizando uma fixture para a qual foi dada um alias', () => {
-        cy.fixture('example.json').as('aliasAtribuidoaFixture')
+        cy.fixture('example.json').as('sampleFile')
         cy.get('#file-upload')
-            .selectFile('@aliasAtribuidoaFixture')
+            .selectFile('@sampleFile')
             .should(function ($arquivo) {
                 expect($arquivo[0].files[0].name).to.eql('example.json')
             })
@@ -201,12 +203,3 @@ describe('Central de atendimento ao cliente TAT', function () {
             .should('be.visible')
     })
 })
-
-
-
-
-
-
-
-
-
